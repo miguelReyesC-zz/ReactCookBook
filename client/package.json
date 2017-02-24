@@ -8,6 +8,7 @@
     "start": "node client.js"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "babel-core": "^6.7.7",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
@@ -33,6 +34,7 @@
     "react-transform-hmr": "^1.0.4",
     "redbox-react": "^1.2.3",
     "redux": "^3.5.2",
+    "redux-thunk": "^2.2.0",
     "rimraf": "^2.5.2",
     "style-loader": "^0.13.1",
     "stylus": "^0.54.5",
