@@ -7,6 +7,12 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());  
 app.use(methodOverride());
 
+app.use(function(req, res, next){
+	res.header('Access-Control-Allow-Origin', "*");
+	res.header('Access-Control-Allow-Methods', "GET,PUT,POST,DELETE");
+	res.header('Access-Control-Allow-Headers', "Content-Type");
+	next();
+})
 /**************************************/
 
 var mongoose = require('mongoose');
@@ -20,11 +26,13 @@ mongoose.connect('mongodb://localhost/cookbook', function(err, res) {
   });
 });
 require('./models/comment');
+require('./models/user');
 
 /**************************************/
 
 var api = express.Router();
 var commentsCtrl = require('./controllers/comments');
+var usersCtrl = require('./controllers/users');
 
 /*router.get('/', function(req, res) {  
    res.send("Hello World!");
@@ -33,6 +41,9 @@ var commentsCtrl = require('./controllers/comments');
 
 api.route('/comments')  
   .get(commentsCtrl.findAllComments);
+
+api.route('/users')  
+  .get(usersCtrl.findAllUsers);
 
 app.use(api);
 

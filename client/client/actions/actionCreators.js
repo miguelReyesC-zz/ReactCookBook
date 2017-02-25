@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 // increment
 export function increment(index) {
   return {
@@ -24,5 +26,31 @@ export function removeComment(postId, i) {
     type: 'REMOVE_COMMENT',
     i,
     postId
+  }
+}
+
+// NUEVO
+/*export function showUsers(){
+  const users = [
+    {id : 1 , name : "First name"},
+    {id : 2 , name : "Second Comment"}
+  ]
+  return {
+    type: "SHOW_USERS",
+    payload: users
+  }
+}*/
+
+export function showUsers(){
+  return(dispatch, getState) => {
+    axios.get("http://localhost:3000/users").then((response) => {
+    //axios.get("http://jsonplaceholder.typicode.com/users").then((response) => {
+      console.log(">>>>>>>>>>");
+      console.log(response.data);
+      dispatch({
+        type: "SHOW_USERS",
+        payload: response.data
+      })
+    })
   }
 }

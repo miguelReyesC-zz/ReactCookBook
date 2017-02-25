@@ -4,9 +4,12 @@ import * as actionCreators from '../actions/actionCreators';
 import Main from './Main';
 
 function mapStateToProps(state){
+	console.log ("STATE")
+	console.log(state)
 	return {
 		posts : state.posts,
-		comments: state.comments
+		comments: state.comments,
+		users: state.user.list
 	}
 }
 
