@@ -9,7 +9,9 @@ function mapStateToProps(state){
 	return {
 		posts : state.posts,
 		comments: state.comments,
-		users: state.user.list
+		users: state.user.list,
+		receipes: state.receipe.list,
+		categories: state.category.list
 	}
 }
 

@@ -1,37 +1,48 @@
 import React from 'react';
 import Receipe from './Receipe';
-
-/*const ReceipeGrid = React.createClass({
-	render(){
-		return(
-			<div className="photo-grid">
-				{this.props.posts.map((post, id) => 
-					<Receipe {...this.props} key={id} i={id} post={post}/>
-				)}
-			</div>
-		)
-	}
-});*/
+import Photo from './Photo';
 
 const ReceipeGrid = React.createClass({
 	componentWillMount(){
-		this.props.showUsers()
+		this.props.showReceipes()
 	},
-	renderUsersList(){
-		return this.props.users.map((user) => {
-			console.log(user);
+	render(){
+		return(
+			<div>
+				<div className="photo-grid">
+					{this.props.receipes.map((recipe, id) => 
+						<Receipe {...this.props} key={id} i={id} recipe={recipe}/>
+					)}
+				</div>
+				<div className="photo-grid">
+					{this.props.posts.map((post, id) => 
+						<Photo {...this.props} key={id} i={id} post={post}/>
+					)}
+				</div>
+			</div>
+		)
+	}
+});
+
+/*const ReceipeGrid = React.createClass({
+	componentWillMount(){
+		this.props.showReceipes()
+	},
+	renderReceipesList(){
+		return this.props.receipes.map((receipe) => {
+			console.log(receipe);
 			return(
-				<div key={user._id}>{user.name}</div>
+				<div key={receipe._id}>{receipe.recipeName}</div>
 			)
 		})
 	},
 	render(){
 		return(
 			<div>
-				{this.renderUsersList() }
+				{this.renderReceipesList() }
 			</div>
 		)
 	}
-});
+});*/
 
 export default ReceipeGrid;

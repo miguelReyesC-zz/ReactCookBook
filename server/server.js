@@ -27,12 +27,16 @@ mongoose.connect('mongodb://localhost/cookbook', function(err, res) {
 });
 require('./models/comment');
 require('./models/user');
+require('./models/receipe');
+require('./models/category');
 
 /**************************************/
 
 var api = express.Router();
 var commentsCtrl = require('./controllers/comments');
 var usersCtrl = require('./controllers/users');
+var receipesCtrl = require('./controllers/receipes');
+var categoriesCtrl = require('./controllers/categories');
 
 /*router.get('/', function(req, res) {  
    res.send("Hello World!");
@@ -44,6 +48,12 @@ api.route('/comments')
 
 api.route('/users')  
   .get(usersCtrl.findAllUsers);
+
+api.route('/receipes')  
+  .get(receipesCtrl.findAllReceipes);
+
+api.route('/categories')  
+  .get(categoriesCtrl.findAllCategories);
 
 app.use(api);
 

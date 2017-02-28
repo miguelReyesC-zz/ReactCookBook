@@ -54,3 +54,34 @@ export function showUsers(){
     })
   }
 }
+
+export function showReceipes(){
+  return(dispatch, getState) => {
+    axios.get("http://localhost:3000/receipes").then((response) => {
+    //axios.get("http://jsonplaceholder.typicode.com/users").then((response) => {
+      console.log(">>>>>>>>>>");
+      console.log(response.data);
+      dispatch({
+        type: "SHOW_RECEIPES",
+        payload: response.data
+      })
+    })
+  }
+}
+
+export function getCategories(){
+  return(dispatch, getState) => {
+    axios.get("http://localhost:3000/categories").then((response) => {
+    //axios.get("http://jsonplaceholder.typicode.com/users").then((response) => {
+      console.log(">>>>>>>>>>");
+      console.log(response.data);
+      dispatch({
+        type: "GET_CATEGORIES",
+        payload: response.data
+      })
+    })
+  }
+}
+
+
+
