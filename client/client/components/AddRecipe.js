@@ -15,7 +15,7 @@ var AddRecipe = React.createClass({
 			preparation: this.refs.preparation.value
 		};
 		console.log(recipe);
-		//this.props.emit('addRecipe', recipe);
+		this.props.addRecipe(recipe);
 	},
 
 	render() {

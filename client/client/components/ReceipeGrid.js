@@ -10,7 +10,7 @@ const ReceipeGrid = React.createClass({
 		return(
 			<div>
 				<div className="photo-grid">
-					{this.props.receipes.map((recipe, id) => 
+					{this.props.receipes && this.props.receipes.map((recipe, id) =>
 						<Receipe {...this.props} key={id} i={id} recipe={recipe}/>
 					)}
 				</div>
@@ -23,26 +23,4 @@ const ReceipeGrid = React.createClass({
 		)
 	}
 });
-
-/*const ReceipeGrid = React.createClass({
-	componentWillMount(){
-		this.props.showReceipes()
-	},
-	renderReceipesList(){
-		return this.props.receipes.map((receipe) => {
-			console.log(receipe);
-			return(
-				<div key={receipe._id}>{receipe.recipeName}</div>
-			)
-		})
-	},
-	render(){
-		return(
-			<div>
-				{this.renderReceipesList() }
-			</div>
-		)
-	}
-});*/
-
 export default ReceipeGrid;

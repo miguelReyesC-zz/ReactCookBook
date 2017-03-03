@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { history } from './../store';
 
 // increment
 export function increment(index) {
@@ -64,7 +65,7 @@ export function showReceipes(){
       dispatch({
         type: "SHOW_RECEIPES",
         payload: response.data
-      })
+      });
     })
   }
 }
@@ -83,5 +84,19 @@ export function getCategories(){
   }
 }
 
-
+// add recipe
+export function addRecipe(recipe) {
+  console.log("Dispatching add recipe");
+  return(dispatch, getState) => {
+    axios.post("http://localhost:3000/receipes", recipe).then((response) => {
+      console.log(">>>>>>>>>>add recipe");
+      console.log(response);
+      dispatch({
+        type: "ADD_RECIPE",
+        payload: response.data
+      });
+      history.push('/receipes');
+    })
+  }
+}
 

@@ -50,7 +50,8 @@ api.route('/users')
   .get(usersCtrl.findAllUsers);
 
 api.route('/receipes')  
-  .get(receipesCtrl.findAllReceipes);
+  .get(receipesCtrl.findAllReceipes)
+  .post(receipesCtrl.addRecipe);
 
 api.route('/categories')  
   .get(categoriesCtrl.findAllCategories);
