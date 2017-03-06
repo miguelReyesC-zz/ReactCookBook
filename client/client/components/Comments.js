@@ -22,6 +22,9 @@ const Comments = React.createClass({
   	this.refs.commentForm.reset();
   },
   render() {
+
+    console.log("comments:");
+    console.log(this.props.postComments);
     return (
       <div className="comments">
         {this.props.postComments.map(this.renderComment)}

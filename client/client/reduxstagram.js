@@ -9,7 +9,7 @@ import css from './styles/style.styl';
 import App from './components/App';
 import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
-import ReceipeGrid from './components/ReceipeGrid';
+import RecipeGrid from './components/RecipeGrid';
 import AddRecipe from './components/AddRecipe';
 
 //React router
@@ -23,7 +23,7 @@ const router = (
 			<Route path="/" component={App}>
 				<IndexRoute component={PhotoGrid}></IndexRoute>
 				<Route path="/view/:postId" component={Single}></Route>
-				<Route path="/receipes" component={ReceipeGrid}></Route>
+				<Route path="/recipes" component={RecipeGrid}></Route>
 				<Route path="/addrecipe" component={AddRecipe}></Route>
 			</Route>		
 		</Router>

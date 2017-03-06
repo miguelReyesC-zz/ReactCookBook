@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import CSSTransitionGroup from 'react-addons-css-transition-group';
 
-const Photo = React.createClass({
+const Recipe = React.createClass({
 	render() {
 		const { recipe, i} = this.props;
 		console.log("@@@@@@@@@@@");
@@ -44,4 +44,4 @@ const Photo = React.createClass({
 	}
 });
 
-export default Photo;
+export default Recipe;

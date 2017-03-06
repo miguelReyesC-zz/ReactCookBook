@@ -95,8 +95,7 @@ export function addRecipe(recipe) {
         type: "ADD_RECIPE",
         payload: response.data
       });
-      history.push('/receipes');
+      history.push('/recipes');
     })
   }
 }
-

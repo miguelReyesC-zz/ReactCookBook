@@ -1,5 +1,5 @@
 import React from 'react';
-import Receipe from './Receipe';
+import Photo from './Photo';
 import Comments from './Comments';
 
 const Single = React.createClass({
@@ -10,7 +10,7 @@ const Single = React.createClass({
 		const postComments = this.props.comments[postId] || [];
 		return(
 			<div className="single-photo">
-				<Receipe i={i} post={post} {...this.props} />
+				<Photo i={i} post={post} {...this.props} />
 				<Comments postComments={postComments} {...this.props}/>
 			</div>
 		)

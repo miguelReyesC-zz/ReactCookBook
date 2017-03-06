@@ -8,7 +8,8 @@ import { showReceipes } from "./receipes";
 import { getCategories } from "./categories";
 
 const rootReducer = combineReducers(
-	{	posts, comments, 
+	{	posts, 
+		comments, 
 		user: showUsers, 
 		receipe: showReceipes, 
 		category: getCategories,

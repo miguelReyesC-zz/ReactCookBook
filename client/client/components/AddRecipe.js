@@ -1,23 +1,34 @@
-var React = require('react');
+import React from 'react';
+import Ingredients from './Ingredients';
 
-var AddRecipe = React.createClass({
+const AddRecipe = React.createClass({
+	getInitialState: function() {
+	    return {	
+	    	recipeToAdd: {
+				recipeName: "",
+				category: "",
+				chef: "",
+				preparation: "",	    		
+				ingredients: []
+			}};
+  	},
 	componentWillMount(){
-		this.props.getCategories()
-		console.log("*****---------*********");
-		console.log(this.props);
-		console.log("*****---------*********");
+		this.props.getCategories();
 	},
 	save() {
-		var recipe = {
-			recipeName: this.refs.recipeName.value,
-			category: this.refs.category.value,
-			chef: this.refs.chef.value,
-			preparation: this.refs.preparation.value
-		};
-		console.log(recipe);
-		this.props.addRecipe(recipe);
+		this.state.recipeToAdd.recipeName = this.refs.recipeName.value,
+		this.state.recipeToAdd.category = this.refs.category.value,
+		this.state.recipeToAdd.chef = this.refs.chef.value,
+		this.state.recipeToAdd.preparation = this.refs.preparation.value,
+		console.log(this.state.recipeToAdd);
+		this.props.addRecipe(this.state.recipeToAdd);
 	},
-
+	onAddIngredient(ingredient){
+		this.state.recipeToAdd.ingredients.push(ingredient);
+	},
+	removeIngredient(i){
+		this.state.recipeToAdd.ingredients.splice(i, 1);
+	},
 	render() {
 		return (
 			<div className="container">
@@ -54,8 +65,13 @@ var AddRecipe = React.createClass({
 				       required />	       
 
 				<br />
-				<button className="btn btn-primary">Save</button>
+				<label>Ingredients</label>
+				<Ingredients removeIngredient={this.removeIngredient} addIngredient={this.onAddIngredient} {...this.props}  recipeToAdd={this.state.recipeToAdd}/>
 
+				<br />
+				<button className="btn btn-primary">Save</button>
+				<br />
+				<br />
 			</form>
 			</div>
 		);
