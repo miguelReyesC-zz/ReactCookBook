@@ -20,6 +20,7 @@ const AddRecipe = React.createClass({
 		this.state.recipeToAdd.category = this.refs.category.value,
 		this.state.recipeToAdd.chef = this.refs.chef.value,
 		this.state.recipeToAdd.preparation = this.refs.preparation.value,
+		console.log("bug@@");
 		console.log(this.state.recipeToAdd);
 		this.props.addRecipe(this.state.recipeToAdd);
 	},

@@ -12,7 +12,7 @@ exports.findAllReceipes = function(req, res) {
     });
 };
 
-exports.addRecipe = function(req, res) {  
+exports.addRecipe = function(req, res) {
     console.log('POST');
     console.log(req.body);
 
@@ -21,7 +21,7 @@ exports.addRecipe = function(req, res) {
 		category: 		req.body.category,
 		chef: 			req.body.chef,
 		preparation: 	req.body.preparation,
-		ingredients : 	[]
+		ingredients : 	req.body.ingredients
     });
 
     recipe.save(function(err, recipe) {
@@ -29,5 +29,16 @@ exports.addRecipe = function(req, res) {
     	return res.status(500).send(err.message);
     }
     res.status(200).jsonp(recipe);
+    });
+};
+
+exports.findRecipeById = function(req, res) {  
+    Receipes.findById(req.params.id, function(err, recipe) {
+    if(err){
+        res.send(500, err.message);
+    }
+
+    console.log('GET /recipe/ by id' + req.params.id);
+        res.status(200).jsonp(recipe);
     });
 };

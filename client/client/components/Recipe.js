@@ -11,7 +11,7 @@ const Recipe = React.createClass({
 			<figure className='grid-figure'>
 
 				<div className="grid-photo-wrap">
-					<Link to={`/view/${recipe._id}`}>
+					<Link to={`/viewrecipe/${recipe._id}`}>
 				      {(() => {
 				        switch (recipe.category) {
 				          case "pastas":   return <img src={require('./../imgs/pastas.jpg')} alt={recipe.category}  className="grid-photo"/>;
@@ -30,7 +30,7 @@ const Recipe = React.createClass({
 				  <p>{recipe.recipeName}</p>
 				  <div className="control-buttons">
 				    <button onClick={this.props.increment.bind(null, i)} className="likes">&hearts; {recipe.recipeName}</button>
-				    <Link className="button" to={`/view/${recipe._jd}`}>
+				    <Link className="button" to={`/viewrecipe/${recipe._jd}`}>
 				      <span className="comment-count">
 				        <span className="speech-bubble"></span>
 				        0

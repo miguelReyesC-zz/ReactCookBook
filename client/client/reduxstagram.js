@@ -11,6 +11,7 @@ import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 import RecipeGrid from './components/RecipeGrid';
 import AddRecipe from './components/AddRecipe';
+import ViewRecipe from './components/ViewRecipe';
 
 //React router
 import { Router, Route, IndexRoute, browserHistory} from 'react-router';
@@ -25,6 +26,7 @@ const router = (
 				<Route path="/view/:postId" component={Single}></Route>
 				<Route path="/recipes" component={RecipeGrid}></Route>
 				<Route path="/addrecipe" component={AddRecipe}></Route>
+				<Route path="/viewrecipe/:recipeId" component={ViewRecipe}></Route>
 			</Route>		
 		</Router>
 	</Provider>

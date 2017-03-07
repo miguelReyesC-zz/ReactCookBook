@@ -6,8 +6,12 @@ var receipeSchema = new Schema({
 	category:     { type: String },
 	chef: 		  { type: String },
 	preparation:  { type: String },
-	ingredients : []
+	ingredients:  [ ingredientSchema ]
+});
 
+var ingredientSchema = new Schema({
+	name:         { type: String },
+	quantity:     { type: String }
 });
 
 module.exports = mongoose.model('Receipes', receipeSchema); 
