@@ -42,3 +42,17 @@ exports.findRecipeById = function(req, res) {
         res.status(200).jsonp(recipe);
     });
 };
+
+
+exports.findRecipeByName = function(req, res) {
+    console.log("Query:");
+    console.log(req.query);
+    Receipes.find(req.query, function(err, recipe) {
+    if(err){
+        res.send(500, err.message);
+    }
+
+    console.log('GET /recipe/ by name' + req.query);
+        res.status(200).jsonp(recipe);
+    });
+};

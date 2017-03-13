@@ -56,6 +56,9 @@ api.route('/receipes')
 api.route('/receipes/:id')  
   .get(receipesCtrl.findRecipeById)  
 
+api.route('/myreceipes')
+  .get(receipesCtrl.findRecipeByName);
+
 api.route('/categories')  
   .get(categoriesCtrl.findAllCategories);
 

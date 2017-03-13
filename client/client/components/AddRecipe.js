@@ -33,6 +33,7 @@ const AddRecipe = React.createClass({
 	render() {
 		return (
 			<div className="container">
+			<br />
 			<form action="javascript:void(0)" onSubmit={this.save}>
 				
 				<label>Recipe Name</label>

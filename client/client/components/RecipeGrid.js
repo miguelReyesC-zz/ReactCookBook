@@ -8,7 +8,8 @@ const RecipeGrid = React.createClass({
 	},
 	render(){
 		return(
-			<div>
+			<div className="row">
+				<br />
 				<div className="photo-grid">
 					{this.props.receipes && this.props.receipes.map((recipe, id) =>
 						<Recipe {...this.props} key={id} i={id} recipe={recipe}/>
